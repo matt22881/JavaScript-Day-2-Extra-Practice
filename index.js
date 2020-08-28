@@ -61,11 +61,11 @@ TASK 5 🚀
 // A developer decides to become a digital nomad for a year, they would like to live in a place with strong wifi, a beach, and good hiking, return their options
 */
 
-let wifiBeach = findBeach.filter(function (place){if (place.wifi === "strong")
+const wifiBeach = findBeach.filter(function (place){if (place.wifi === "strong")
     return true
 });
 
-let nomad = wifiBeach.filter(function (place){if (place.hiking === true)
+const nomad = wifiBeach.filter(function (place){if (place.hiking === true)
     return true
 });
 // console.log(nomad);
@@ -74,34 +74,53 @@ let nomad = wifiBeach.filter(function (place){if (place.hiking === true)
 TASK 6 🚀
 // write a function that allows a user to sort their vacations by hiking opportunities, beach access or a mix of both and return their options
 */
-let myFunction = function() {
-    let choice = window.prompt("hiking, beach, or both?");
-        if (choice === "hiking"){
-            console.log(vacations.filter(function(place) {if (place.beach === true)
-                return true}))}
-        else if (choice === "beach"){
-            console.log(vacations.filter(function(place) {if (place.beach === true)
-                return true}))}
-        else if (choice === "both"){
-            console.log(findBeach.filter(function(place) {if (place.hiking === true)
-                return true}))}
-        else console.log("That wasn't one of the choices.")
+let myVacation = []
+let chooseYourVacationSpot = function() {
 
+    const choice = window.prompt(`Choose Your Vacation Spot!\n   Type what you'd prefer,\n       Great HIKING (h),\n       A sandy BEACH (b),\n       or a MIX (m) of both?`);
+        if (choice.toLowerCase().startsWith("h")){
+            let vacation = vacations.filter(function(place) {if (place.hiking === true)
+                return true})
+                myVacation = vacation
+                console.log("Take a hike.")
+            }
+        else if (choice.toLowerCase().startsWith("b")){
+            let vacation = vacations.filter(function(place) {if (place.beach === true)
+                return true})
+
+                console.log("Pound sand.")
+                myVacation = vacation
+            }
+        else if (choice.toLowerCase().startsWith("m")){
+            let vacation = findBeach.filter(function(place) {if (place.hiking === true)
+                return true})
+                myVacation = vacation
+                console.log("Take a long walk off a short pier.")
+            }
+        else {console.log("That wasn't one of the choices, have the full list.")
+            myVacation = vacations
         }
-myFunction();
-/*fishing
+    };
+// chooseYourVacationSpot();
+// console.log(myVacation)
+
+        /*
 TASK 7 🚀
 // write a function that finds the average of overall ratings in a given array. The function should take an array as its argument and should return the average of the overall ratings in that array
 hint - use .reduce()
 */
-
-// const avg = arr.reduce(function(accumulator, iten) {
-//     return accumulator + item.rating/arr.length
-// })
-
+let averageRating = function(arr) {
+let total = arr.reduce(function(accumulator, item) {
+    return (accumulator + item.overall_rating)
+}, 0);
+let avg = total/arr.length
+return(avg)
+}
+console.log(averageRating(vacations))
 /*
 TASK 8 🚀
 Find the airport codes for each of the cities in the vacation array and write a function to add them to the objects in the array
 hint - your function should include array, index and code as parameters
 you will need to invoke the function each time you wish to add a new code
 */
+
