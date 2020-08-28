@@ -51,9 +51,10 @@ let findBeach = vacations.filter(function(place){if (place.beach === true)
     return true
 });
 let hotBeach = findBeach.filter(function (place){if (place.temperature > 90)
-     return true
+    return true
 });
-console.log(hotBeach);
+
+// console.log(hotBeach);
 
 /*
 TASK 5 🚀
@@ -67,21 +68,36 @@ let wifiBeach = findBeach.filter(function (place){if (place.wifi === "strong")
 let nomad = wifiBeach.filter(function (place){if (place.hiking === true)
     return true
 });
-console.log(nomad);
+// console.log(nomad);
 
 /*
 TASK 6 🚀
 // write a function that allows a user to sort their vacations by hiking opportunities, beach access or a mix of both and return their options
 */
+let myFunction = function() {
+    let choice = window.prompt("hiking, beach, or both?");
+        if (choice === "hiking"){
+            console.log(vacations.filter(function(place) {if (place.beach === true)
+                return true}))}
+        else if (choice === "beach"){
+            console.log(vacations.filter(function(place) {if (place.beach === true)
+                return true}))}
+        else if (choice === "both"){
+            console.log(findBeach.filter(function(place) {if (place.hiking === true)
+                return true}))}
+        else console.log("That wasn't one of the choices.")
 
-
-
-/*
+        }
+myFunction();
+/*fishing
 TASK 7 🚀
 // write a function that finds the average of overall ratings in a given array. The function should take an array as its argument and should return the average of the overall ratings in that array
 hint - use .reduce()
 */
 
+// const avg = arr.reduce(function(accumulator, iten) {
+//     return accumulator + item.rating/arr.length
+// })
 
 /*
 TASK 8 🚀
