@@ -7,7 +7,7 @@ TASK 1 🚀
 // The customer would like to see the topping options, console log out each of the toppings one by one in the array above
 */
 
-toppings.forEach(function(topping){console.log(topping)});
+// toppings.forEach(function(topping){console.log(topping)});
 
 /*
 TASK 2 🚀
@@ -16,17 +16,23 @@ for example you no longer have any onions and need to remove it from the list of
 Use .forEach() - hint - you will need to include the index in the callback
  */
 
-// let myFunction = array.forEach(function(item), index, array){
-//     if (array[index] === item){splice(array[index])};
-// };
-// console.log(myFunction(onions, toppings));
+
+const removeTopping = function(item, array){
+     array.forEach(function(item, index){
+        if (array[index] === item){
+            console.log(array[index])
+            array.splice(index, 1)}})}
+
+// removeTopping("Onions", toppings);
+// console.log(toppings);
 
 /*
 TASK 3 🚀
 // Sort the topping alphabetically and return them in a new array
 */
 
-
+sortedToppings = toppings.sort()
+// console.log(sortedToppings)
 
 
 const vacations = [
@@ -116,11 +122,23 @@ let total = arr.reduce(function(accumulator, item) {
 let avg = total/arr.length
 return(avg)
 }
-console.log(averageRating(vacations))
+// console.log(averageRating(vacations))
+
 /*
 TASK 8 🚀
 Find the airport codes for each of the cities in the vacation array and write a function to add them to the objects in the array
 hint - your function should include array, index and code as parameters
 you will need to invoke the function each time you wish to add a new code
 */
+const codes = ["YYZ", "MIA", "TLV", "IST", "BKK", "LIM", "MCT", "SYD", "CPT" ,"CUN"]
 
+const addCode = function(code, index, arr) {
+    arr[index].code = code
+};
+
+const addAll = function(array) {
+    for (let i = 0; i < array.length; i++) {
+    addCode(codes[i], i, array)
+}};
+
+addAll(vacations);
