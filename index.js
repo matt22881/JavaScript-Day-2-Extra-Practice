@@ -4,9 +4,10 @@ const toppings = ['Mushrooms ', 'Tomatoes', 'Eggs', 'Chili', 'Lettuce', 'Avocado
 
 /*
 TASK 1 🚀
-// The customer would like to see the topping options, console log out each of the toppings one by one in the array above 
+// The customer would like to see the topping options, console log out each of the toppings one by one in the array above
 */
 
+toppings.forEach(function(topping){console.log(topping)});
 
 /*
 TASK 2 🚀
@@ -15,11 +16,14 @@ for example you no longer have any onions and need to remove it from the list of
 Use .forEach() - hint - you will need to include the index in the callback
  */
 
-
+// let myFunction = array.forEach(function(item), index, array){
+//     if (array[index] === item){splice(array[index])};
+// };
+// console.log(myFunction(onions, toppings));
 
 /*
 TASK 3 🚀
-// Sort the topping alphabetically and return them in a new array 
+// Sort the topping alphabetically and return them in a new array
 */
 
 
@@ -40,28 +44,41 @@ const vacations = [
 
 /*
 TASK 4 🚀
-// The travel agent would like to send a couple on their honeymoon to a location with a beach and a temperature above 90 degrees. return their options in a new array 
+// The travel agent would like to send a couple on their honeymoon to a location with a beach and a temperature above 90 degrees. return their options in a new array
 */
 
-
+let findBeach = vacations.filter(function(place){if (place.beach === true)
+    return true
+});
+let hotBeach = findBeach.filter(function (place){if (place.temperature > 90)
+     return true
+});
+console.log(hotBeach);
 
 /*
 TASK 5 🚀
 // A developer decides to become a digital nomad for a year, they would like to live in a place with strong wifi, a beach, and good hiking, return their options
 */
 
+let wifiBeach = findBeach.filter(function (place){if (place.wifi === "strong")
+    return true
+});
 
+let nomad = wifiBeach.filter(function (place){if (place.hiking === true)
+    return true
+});
+console.log(nomad);
 
-/* 
+/*
 TASK 6 🚀
 // write a function that allows a user to sort their vacations by hiking opportunities, beach access or a mix of both and return their options
 */
 
 
 
-/* 
+/*
 TASK 7 🚀
-// write a function that finds the average of overall ratings in a given array. The function should take an array as its argument and should return the average of the overall ratings in that array 
+// write a function that finds the average of overall ratings in a given array. The function should take an array as its argument and should return the average of the overall ratings in that array
 hint - use .reduce()
 */
 
